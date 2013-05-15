@@ -75,7 +75,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
-	alias rm='rm -i'
 fi
 
 # some more ls aliases
@@ -83,6 +82,9 @@ alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 alias gams='/opt/gams32/gams'
+alias rm='rm -i'
+alias chrome='google-chrome'
+alias xclip='xclip -selection c'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -121,10 +123,21 @@ cdup(){
 		t=$(( $t-1 ))
 	done
 }
+cdwork(){
+    WORKDIR='/home/leetom/svn/codepku/2'
+    cd $WORKDIR
+}
+cdstatic(){
+    WORKDIR='/home/leetom/svn/codepku/2/codepku/static'
+    cd $WORKDIR
+}
+
 #hack prompt forced colored
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 export SUDO_EDITOR=vim
 export NODE_PATH=./node_modules
+
+#export http_proxy=http://127.0.0.1:8087/ 
 
 #perlbrew
 source ~/perl5/perlbrew/etc/bashrc

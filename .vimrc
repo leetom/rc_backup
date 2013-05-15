@@ -54,6 +54,9 @@ set incsearch
 "set magic on, for regular expressions
 set magic
 
+" high light search
+set hlsearch
+
 "show matching bracets when text indicator is over them
 set showmatch
 "how many tenths of a second to blink
@@ -83,6 +86,11 @@ set laststatus=2
 :map tc :tabclose<cr> 
 :map tt :e!<cr>
 
+:map ff :tabnew <Bar> :FufFile <cr>
+
+
+" Vundle相关
+
 " syntax on
 syntax on
 
@@ -103,11 +111,19 @@ set nocompatible               " be iMproved
  Bundle 'tpope/vim-fugitive'
  
  Bundle 'tpope/vim-rails.git'
- Bundle 'gregsexton/MatchTag.git' "match html tags
+ " match tags for html
+ Bundle 'gregsexton/MatchTag.git' 
  " vim-scripts repos
  Bundle 'L9'
  Bundle 'FuzzyFinder'
  Bundle 'ZenCoding.vim'
+ Bundle "pangloss/vim-javascript"
+ Bundle "kchmck/vim-coffee-script"
+
+ " highlight color, git://github.com/ap/vim-css-color.git
+ Bundle "ap/vim-css-color"
+
+ " symfony.vim is installed by BundleSearch
  "Bundle 'mattn/zencoding-vim.git'
  " non github repos
  "Bundle 'git://git.wincent.com/command-t.git'
@@ -123,3 +139,11 @@ set nocompatible               " be iMproved
  "
  " see :h vundle for more details or wiki for FAQ
  " NOTE: comments after Bundle command are not allowed..
+ "
+ 
+
+ " leetom
+ "
+ if has("autocmd")
+     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+ endif
