@@ -86,6 +86,13 @@ alias rm='rm -i'
 alias chrome='google-chrome'
 alias xclip='xclip -selection c'
 
+alias cndns='ssh drupal.scratchina.com -p 2222'
+alias c='cd ..'
+alias x='exit'
+
+# alias to login to pku network
+alias pku='ipgwclient connect 1201213729 1991n0405 free'
+alias dispku='ipgwclient disconnectall 1201213729 1991n0405'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -107,7 +114,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-export PATH=$PATH:/opt/lampp/bin
+export PATH=$PATH:/opt/lampp/bin:~/software/android-sdk-linux/tools:~/software/android-sdk-linux/platform-tools
 export EDITOR=vim
 
 ####by leetom####
@@ -124,11 +131,16 @@ cdup(){
 	done
 }
 cdwork(){
-    WORKDIR='/home/leetom/svn/codepku/2'
+    #WORKDIR='/home/leetom/svn/codepku/2'
+    WORKDIR='/home/leetom/svn/leetom/1/study_proj'
     cd $WORKDIR
 }
 cdstatic(){
     WORKDIR='/home/leetom/svn/codepku/2/codepku/static'
+    cd $WORKDIR
+}
+cdtemp(){
+    WORKDIR='/home/leetom/svn/codepku/2/codepku/templates'
     cd $WORKDIR
 }
 
@@ -138,6 +150,7 @@ export SUDO_EDITOR=vim
 export NODE_PATH=./node_modules
 
 #export http_proxy=http://127.0.0.1:8087/ 
+#export https_proxy=http://127.0.0.1:8087/ 
 
 #perlbrew
 source ~/perl5/perlbrew/etc/bashrc
@@ -145,3 +158,6 @@ source ~/perl5/perlbrew/etc/bashrc
 #phpbrew
 source /home/leetom/.phpbrew/bashrc
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
